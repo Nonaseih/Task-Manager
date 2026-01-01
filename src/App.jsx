@@ -20,6 +20,7 @@ import { useState, useEffect } from 'react'
 import { Plus, Trash2, Edit2, Check, X, Search, ClipboardList, RotateCcw } from 'lucide-react'
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true)
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem('tasks')
     return saved ? JSON.parse(saved) : []
@@ -34,6 +35,13 @@ function App() {
   const [editValue, setEditValue] = useState('')
   const [filter, setFilter] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false)
+    }, 2500)
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -127,8 +135,25 @@ function App() {
   }
 
   return (
-    <div className="bg-linear-to-br min-h-screen from-[#0a0b0d] via-[#11131a] to-[#1b1e27] text-white">
-      <div className="bg-size-[50px_50px] pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#232630_1px,transparent_1px),linear-gradient(to_bottom,#232630_1px,transparent_1px)] opacity-10" />
+    <>
+      {showSplash && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#0a0b0d] via-[#11131a] to-[#1b1e27]">
+          <div className="text-center">
+            <div className="mb-8 animate-bounce">
+              <ClipboardList className="mx-auto h-24 w-24 text-white sm:h-32 sm:w-32 lg:h-40 lg:w-40" />
+            </div>
+            <h1 className="animate-pulse text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Task Manager
+            </h1>
+            <p className="mt-4 text-lg text-gray-400 sm:text-xl lg:text-2xl">
+              Stay Organized, Stay Productive
+            </p>
+          </div>
+        </div>
+      )}
+      
+      <div className="bg-linear-to-br min-h-screen from-[#0a0b0d] via-[#11131a] to-[#1b1e27] text-white">
+        <div className="bg-size-[50px_50px] pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#232630_1px,transparent_1px),linear-gradient(to_bottom,#232630_1px,transparent_1px)] opacity-10" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-16 lg:px-20 lg:py-24">
         {/* Top Bar - Stats */}
@@ -366,6 +391,7 @@ function App() {
         )}
       </div>
     </div>
+    </>
   )
 }
 
