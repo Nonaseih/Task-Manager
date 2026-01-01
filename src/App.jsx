@@ -127,81 +127,81 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#0a0b0d] via-[#11131a] to-[#1b1e27] text-white">
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#232630_1px,transparent_1px),linear-gradient(to_bottom,#232630_1px,transparent_1px)] bg-size-[50px_50px] opacity-10 pointer-events-none" />
+    <div className="bg-linear-to-br min-h-screen from-[#0a0b0d] via-[#11131a] to-[#1b1e27] text-white">
+      <div className="bg-size-[50px_50px] pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#232630_1px,transparent_1px),linear-gradient(to_bottom,#232630_1px,transparent_1px)] opacity-10" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 py-8 sm:py-16 lg:py-24">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-16 lg:px-20 lg:py-24">
         {/* Top Bar - Stats */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-0 mb-20 sm:mb-32 lg:mb-48">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight">Task Manager</h1>
+        <div className="mb-20 flex flex-col items-start justify-between gap-8 sm:mb-32 lg:mb-48 lg:flex-row lg:items-center lg:gap-0">
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">Task Manager</h1>
           <div className="flex flex-wrap items-center gap-4 sm:gap-8 lg:gap-16">
-            <div className="flex items-center gap-2 sm:gap-3 min-w-[100px] sm:min-w-[120px]">
-              <span className="text-gray-400 text-sm sm:text-base">Total:</span>
-              <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">{stats.total}</span>
+            <div className="flex min-w-[100px] items-center gap-2 sm:min-w-[120px] sm:gap-3">
+              <span className="text-sm text-gray-400 sm:text-base">Total:</span>
+              <span className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">{stats.total}</span>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 min-w-[100px] sm:min-w-[120px]">
-              <span className="text-gray-400 text-sm sm:text-base">Active:</span>
-              <span className="text-blue-400 font-bold text-xl sm:text-2xl lg:text-3xl">{stats.active}</span>
+            <div className="flex min-w-[100px] items-center gap-2 sm:min-w-[120px] sm:gap-3">
+              <span className="text-sm text-gray-400 sm:text-base">Active:</span>
+              <span className="text-xl font-bold text-blue-400 sm:text-2xl lg:text-3xl">{stats.active}</span>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 min-w-[100px] sm:min-w-[120px]">
-              <span className="text-gray-400 text-sm sm:text-base">Done:</span>
-              <span className="text-green-400 font-bold text-xl sm:text-2xl lg:text-3xl">{stats.completed}</span>
+            <div className="flex min-w-[100px] items-center gap-2 sm:min-w-[120px] sm:gap-3">
+              <span className="text-sm text-gray-400 sm:text-base">Done:</span>
+              <span className="text-xl font-bold text-green-400 sm:text-2xl lg:text-3xl">{stats.completed}</span>
             </div>
             <button
               onClick={() => setShowDeleted(!showDeleted)}
-              className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg sm:rounded-xl transition-all min-w-[140px] sm:min-w-[180px]"
+              className="flex min-w-[140px] items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 transition-all hover:bg-white/10 sm:min-w-[180px] sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3"
             >
-              <Trash2 className="w-4 h-4 sm:w-6 sm:h-6 text-red-400" />
-              <span className="text-gray-400 text-sm sm:text-base">Deleted:</span>
-              <span className="text-red-400 font-bold text-xl sm:text-2xl lg:text-3xl">{deletedTasks.length}</span>
+              <Trash2 className="h-4 w-4 text-red-400 sm:h-6 sm:w-6" />
+              <span className="text-sm text-gray-400 sm:text-base">Deleted:</span>
+              <span className="text-xl font-bold text-red-400 sm:text-2xl lg:text-3xl">{deletedTasks.length}</span>
             </button>
           </div>
         </div>
 
         {/* Search Bar */}
-        <div className="max-w-4xl mx-auto mb-20 sm:mb-32 lg:mb-48">
+        <div className="mx-auto mb-20 max-w-4xl sm:mb-32 lg:mb-48">
           <div className="relative">
-            <Search className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-7 sm:h-7 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500 sm:left-8 sm:h-7 sm:w-7" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search tasks..."
-              className="w-full min-w-[200px] bg-white/5 backdrop-blur-xl border-2 border-white/10 rounded-2xl sm:rounded-3xl pl-14 sm:pl-20 pr-4 sm:pr-8 py-4 sm:py-7 text-base sm:text-xl text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/8 transition-all"
+              className="focus:bg-white/8 w-full min-w-[200px] rounded-2xl border-2 border-white/10 bg-white/5 py-4 pl-14 pr-4 text-base text-white placeholder-gray-500 backdrop-blur-xl transition-all focus:border-white/30 focus:outline-none sm:rounded-3xl sm:py-7 sm:pl-20 sm:pr-8 sm:text-xl"
             />
           </div>
         </div>
 
         {showDeleted ? (
           /* Deleted Tasks View */
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-center justify-between mb-12 sm:mb-20 lg:mb-32">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-400 flex items-center gap-2 sm:gap-4">
-                <Trash2 className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10" />
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-12 flex items-center justify-between sm:mb-20 lg:mb-32">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-red-400 sm:gap-4 sm:text-3xl lg:text-4xl">
+                <Trash2 className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10" />
                 Deleted Tasks
               </h2>
               <button
                 onClick={() => setShowDeleted(false)}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-white/10 hover:bg-white/20 rounded-lg sm:rounded-xl transition-all min-w-[60px] sm:min-w-[80px]"
+                className="min-w-[60px] rounded-lg bg-white/10 px-4 py-2 transition-all hover:bg-white/20 sm:min-w-[80px] sm:rounded-xl sm:px-6 sm:py-3"
               >
-                <X className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
               </button>
             </div>
             <div className="space-y-4 sm:space-y-6 lg:space-y-10">
               {deletedTasks.length === 0 ? (
-                <div className="text-center py-16 sm:py-24 lg:py-32">
-                  <Trash2 className="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-6 opacity-20 text-gray-500" />
-                  <p className="text-gray-500 text-lg sm:text-xl lg:text-2xl">No deleted tasks</p>
+                <div className="py-16 text-center sm:py-24 lg:py-32">
+                  <Trash2 className="mx-auto mb-4 h-12 w-12 text-gray-500 opacity-20 sm:mb-6 sm:h-20 sm:w-20 lg:h-24 lg:w-24" />
+                  <p className="text-lg text-gray-500 sm:text-xl lg:text-2xl">No deleted tasks</p>
                 </div>
               ) : (
                 deletedTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="bg-red-500/5 backdrop-blur-xl border-2 border-red-500/20 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0"
+                    className="flex flex-col items-start justify-between gap-4 rounded-2xl border-2 border-red-500/20 bg-red-500/5 p-5 backdrop-blur-xl sm:flex-row sm:items-center sm:gap-0 sm:rounded-3xl sm:p-8 lg:p-12"
                   >
                     <div className="flex-1">
-                      <p className="text-white text-base sm:text-lg lg:text-xl">{task.text}</p>
-                      <p className="text-gray-500 text-sm sm:text-base mt-1 sm:mt-2">
+                      <p className="text-base text-white sm:text-lg lg:text-xl">{task.text}</p>
+                      <p className="mt-1 text-sm text-gray-500 sm:mt-2 sm:text-base">
                         Deleted {new Date(task.deletedAt).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
@@ -210,19 +210,19 @@ function App() {
                         })}
                       </p>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 w-full sm:w-auto">
+                    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4 lg:gap-6">
                       <button
                         onClick={() => restoreTask(task.id)}
-                        className="px-4 sm:px-6 py-2 sm:py-3 bg-green-500/20 hover:bg-green-500/30 text-green-400 rounded-lg sm:rounded-xl transition-all flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base min-w-[120px] sm:min-w-[140px]"
+                        className="flex min-w-[120px] items-center justify-center gap-2 rounded-lg bg-green-500/20 px-4 py-2 text-sm text-green-400 transition-all hover:bg-green-500/30 sm:min-w-[140px] sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3 sm:text-base"
                       >
-                        <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <RotateCcw className="h-4 w-4 sm:h-5 sm:w-5" />
                         Restore
                       </button>
                       <button
                         onClick={() => permanentlyDelete(task.id)}
-                        className="p-2 sm:p-3 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg sm:rounded-xl transition-all flex items-center justify-center min-w-[60px] sm:min-w-[80px]"
+                        className="flex min-w-[60px] items-center justify-center rounded-lg bg-red-500/20 p-2 text-red-400 transition-all hover:bg-red-500/30 sm:min-w-[80px] sm:rounded-xl sm:p-3"
                       >
-                        <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <Trash2 className="h-4 w-4 sm:h-5 sm:w-5" />
                       </button>
                     </div>
                   </div>
@@ -232,28 +232,28 @@ function App() {
           </div>
         ) : (
           /* Main Tasks View */
-          <div className="max-w-5xl mx-auto">
+          <div className="mx-auto max-w-5xl">
             <form onSubmit={addTask} className="mb-20 sm:mb-32 lg:mb-48">
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 lg:gap-8">
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-5 lg:gap-8">
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="What needs to be done?"
-                  className="flex-1 min-w-[200px] bg-white/5 backdrop-blur-xl border-2 border-white/10 rounded-2xl sm:rounded-3xl px-5 sm:px-8 lg:px-10 py-4 sm:py-6 lg:py-8 text-base sm:text-lg lg:text-xl text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/8 transition-all"
+                  className="focus:bg-white/8 min-w-[200px] flex-1 rounded-2xl border-2 border-white/10 bg-white/5 px-5 py-4 text-base text-white placeholder-gray-500 backdrop-blur-xl transition-all focus:border-white/30 focus:outline-none sm:rounded-3xl sm:px-8 sm:py-6 sm:text-lg lg:px-10 lg:py-8 lg:text-xl"
                 />
                 <button
                   type="submit"
-                  className="bg-white/10 hover:bg-white/20 border-2 border-white/20 rounded-2xl sm:rounded-3xl px-6 sm:px-10 lg:px-12 py-4 sm:py-6 lg:py-8 font-bold text-base sm:text-lg flex items-center justify-center gap-2 sm:gap-3 transition-all active:scale-95 min-w-[100px] sm:min-w-[140px]"
+                  className="flex min-w-[100px] items-center justify-center gap-2 rounded-2xl border-2 border-white/20 bg-white/10 px-6 py-4 text-base font-bold transition-all hover:bg-white/20 active:scale-95 sm:min-w-[140px] sm:gap-3 sm:rounded-3xl sm:px-10 sm:py-6 sm:text-lg lg:px-12 lg:py-8"
                 >
-                  <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
                   Add
                 </button>
               </div>
             </form>
 
-            <div className="flex justify-center mb-16 sm:mb-24 lg:mb-40">
-              <div className="flex flex-wrap gap-4 sm:gap-6 lg:gap-8 justify-center">
+            <div className="mb-16 flex justify-center sm:mb-24 lg:mb-40">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
                 {['all', 'active', 'completed'].map((f) => (
                   <button
                     key={f}
@@ -272,9 +272,9 @@ function App() {
 
             <div className="space-y-4 sm:space-y-6 lg:space-y-10">
               {filteredTasks.length === 0 ? (
-                <div className="text-center py-16 sm:py-24 lg:py-32">
-                  <ClipboardList className="w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-4 sm:mb-6 lg:mb-8 opacity-20 text-gray-500" />
-                  <p className="text-gray-500 text-lg sm:text-xl lg:text-2xl">
+                <div className="py-16 text-center sm:py-24 lg:py-32">
+                  <ClipboardList className="mx-auto mb-4 h-16 w-16 text-gray-500 opacity-20 sm:mb-6 sm:h-24 sm:w-24 lg:mb-8 lg:h-32 lg:w-32" />
+                  <p className="text-lg text-gray-500 sm:text-xl lg:text-2xl">
                     {tasks.length === 0
                       ? 'No tasks yet. Add one to get started!'
                       : 'No matching tasks found.'}
@@ -284,7 +284,7 @@ function App() {
                 filteredTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="bg-white/5 backdrop-blur-xl border-2 border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 hover:bg-white/8 hover:border-white/20 transition-all group"
+                    className="hover:bg-white/8 group rounded-2xl border-2 border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all hover:border-white/20 sm:rounded-3xl sm:p-8 lg:p-12"
                   >
                     {editingId === task.id ? (
                       <div className="flex gap-3 sm:gap-4 lg:gap-6">
@@ -293,20 +293,20 @@ function App() {
                           value={editValue}
                           onChange={(e) => setEditValue(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && saveEdit()}
-                          className="flex-1 min-w-[150px] bg-white/8 border-2 border-white/20 rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 text-base sm:text-lg text-white focus:outline-none focus:border-white/40"
+                          className="bg-white/8 min-w-[150px] flex-1 rounded-xl border-2 border-white/20 px-4 py-3 text-base text-white focus:border-white/40 focus:outline-none sm:rounded-2xl sm:px-6 sm:py-4 sm:text-lg lg:px-8 lg:py-5"
                           autoFocus
                         />
                         <button
                           onClick={saveEdit}
-                          className="p-3 sm:p-4 lg:p-5 bg-green-500/20 hover:bg-green-500/30 text-green-400 rounded-xl sm:rounded-2xl transition-all min-w-[50px] sm:min-w-[60px]"
+                          className="min-w-[50px] rounded-xl bg-green-500/20 p-3 text-green-400 transition-all hover:bg-green-500/30 sm:min-w-[60px] sm:rounded-2xl sm:p-4 lg:p-5"
                         >
-                          <Check className="w-5 h-5 sm:w-6 sm:h-6" />
+                          <Check className="h-5 w-5 sm:h-6 sm:w-6" />
                         </button>
                         <button
                           onClick={cancelEdit}
-                          className="p-3 sm:p-4 lg:p-5 bg-white/10 hover:bg-white/20 text-gray-400 rounded-xl sm:rounded-2xl transition-all min-w-[50px] sm:min-w-[60px]"
+                          className="min-w-[50px] rounded-xl bg-white/10 p-3 text-gray-400 transition-all hover:bg-white/20 sm:min-w-[60px] sm:rounded-2xl sm:p-4 lg:p-5"
                         >
-                          <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                          <X className="h-5 w-5 sm:h-6 sm:w-6" />
                         </button>
                       </div>
                     ) : (
@@ -319,10 +319,10 @@ function App() {
                               : 'border-gray-600 hover:border-gray-400'
                           }`}
                         >
-                          {task.completed && <Check className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
+                          {task.completed && <Check className="h-4 w-4 text-white sm:h-5 sm:w-5" />}
                         </button>
 
-                        <div className="flex-1 min-w-0">
+                        <div className="min-w-0 flex-1">
                           <p
                             className={`text-base sm:text-lg lg:text-xl transition-all truncate ${
                               task.completed
@@ -332,7 +332,7 @@ function App() {
                           >
                             {task.text}
                           </p>
-                          <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
+                          <p className="mt-1 text-xs text-gray-600 sm:mt-2 sm:text-sm">
                             {new Date(task.createdAt).toLocaleDateString('en-US', {
                               month: 'short',
                               day: 'numeric',
@@ -342,18 +342,18 @@ function App() {
                           </p>
                         </div>
 
-                        <div className="flex gap-2 sm:gap-3 lg:gap-5 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex gap-2 opacity-100 transition-opacity group-hover:opacity-100 sm:gap-3 sm:opacity-0 lg:gap-5">
                           <button
                             onClick={() => startEdit(task)}
-                            className="p-2 sm:p-3 lg:p-4 bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white rounded-lg sm:rounded-xl lg:rounded-2xl transition-all min-w-[44px] sm:min-w-[52px]"
+                            className="min-w-[44px] rounded-lg bg-white/10 p-2 text-gray-400 transition-all hover:bg-white/20 hover:text-white sm:min-w-[52px] sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
                           >
-                            <Edit2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <Edit2 className="h-4 w-4 sm:h-5 sm:w-5" />
                           </button>
                           <button
                             onClick={() => deleteTask(task.id)}
-                            className="p-2 sm:p-3 lg:p-4 bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 rounded-lg sm:rounded-xl lg:rounded-2xl transition-all min-w-[44px] sm:min-w-[52px]"
+                            className="min-w-[44px] rounded-lg bg-red-500/10 p-2 text-red-400 transition-all hover:bg-red-500/20 hover:text-red-300 sm:min-w-[52px] sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
                           >
-                            <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <Trash2 className="h-4 w-4 sm:h-5 sm:w-5" />
                           </button>
                         </div>
                       </div>
