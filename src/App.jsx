@@ -134,22 +134,22 @@ function App() {
         {/* Top Bar - Stats */}
         <div className="mb-20 flex flex-col items-start justify-between gap-8 sm:mb-32 lg:mb-48 lg:flex-row lg:items-center lg:gap-0">
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">Task Manager</h1>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-8 lg:gap-16">
-            <div className="flex min-w-[100px] items-center gap-2 sm:min-w-[120px] sm:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 lg:gap-16">
+            <div className="flex min-w-[100px] items-center justify-center gap-2 sm:min-w-[120px] sm:gap-3">
               <span className="text-sm text-gray-400 sm:text-base">Total:</span>
               <span className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">{stats.total}</span>
             </div>
-            <div className="flex min-w-[100px] items-center gap-2 sm:min-w-[120px] sm:gap-3">
+            <div className="flex min-w-[100px] items-center justify-center gap-2 sm:min-w-[120px] sm:gap-3">
               <span className="text-sm text-gray-400 sm:text-base">Active:</span>
               <span className="text-xl font-bold text-blue-400 sm:text-2xl lg:text-3xl">{stats.active}</span>
             </div>
-            <div className="flex min-w-[100px] items-center gap-2 sm:min-w-[120px] sm:gap-3">
+            <div className="flex min-w-[100px] items-center justify-center gap-2 sm:min-w-[120px] sm:gap-3">
               <span className="text-sm text-gray-400 sm:text-base">Done:</span>
               <span className="text-xl font-bold text-green-400 sm:text-2xl lg:text-3xl">{stats.completed}</span>
             </div>
             <button
               onClick={() => setShowDeleted(!showDeleted)}
-              className="flex min-w-[140px] items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 transition-all hover:bg-white/10 sm:min-w-[180px] sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3"
+              className="flex min-w-[140px] items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 transition-all hover:bg-white/10 sm:min-w-[180px] sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3"
             >
               <Trash2 className="h-4 w-4 text-red-400 sm:h-6 sm:w-6" />
               <span className="text-sm text-gray-400 sm:text-base">Deleted:</span>
@@ -175,8 +175,8 @@ function App() {
         {showDeleted ? (
           /* Deleted Tasks View */
           <div className="mx-auto max-w-5xl">
-            <div className="mb-12 flex items-center justify-between sm:mb-20 lg:mb-32">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-red-400 sm:gap-4 sm:text-3xl lg:text-4xl">
+            <div className="mb-12 flex items-center justify-center sm:mb-20 lg:mb-32">
+              <h2 className="flex items-center justify-center gap-2 text-2xl font-bold text-red-400 sm:gap-4 sm:text-3xl lg:text-4xl">
                 <Trash2 className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10" />
                 Deleted Tasks
               </h2>
@@ -197,9 +197,9 @@ function App() {
                 deletedTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex flex-col items-start justify-between gap-4 rounded-2xl border-2 border-red-500/20 bg-red-500/5 p-5 backdrop-blur-xl sm:flex-row sm:items-center sm:gap-0 sm:rounded-3xl sm:p-8 lg:p-12"
+                    className="flex flex-col items-center justify-between gap-4 rounded-2xl border-2 border-red-500/20 bg-red-500/5 p-5 backdrop-blur-xl sm:flex-row sm:items-center sm:gap-0 sm:rounded-3xl sm:p-8 lg:p-12"
                   >
-                    <div className="flex-1">
+                    <div className="flex-1 text-center">
                       <p className="text-base text-white sm:text-lg lg:text-xl">{task.text}</p>
                       <p className="mt-1 text-sm text-gray-500 sm:mt-2 sm:text-base">
                         Deleted {new Date(task.deletedAt).toLocaleDateString('en-US', {
@@ -258,7 +258,7 @@ function App() {
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
-                    className={`px-8 sm:px-12 lg:px-16 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base lg:text-lg capitalize transition-all border-2 min-w-[120px] sm:min-w-[160px] lg:min-w-[200px] ${
+                    className={`px-8 sm:px-12 lg:px-16 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base lg:text-lg capitalize transition-all border-2 min-w-[120px] sm:min-w-[160px] lg:min-w-[200px] flex items-center justify-center ${
                       filter === f
                         ? 'bg-white/20 text-white border-white/30'
                         : 'bg-white/5 text-gray-400 border-white/10 hover:text-white hover:bg-white/10 hover:border-white/20'
@@ -310,7 +310,7 @@ function App() {
                         </button>
                       </div>
                     ) : (
-                      <div className="flex items-center gap-4 sm:gap-6 lg:gap-10">
+                      <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-10">
                         <button
                           onClick={() => toggleComplete(task.id)}
                           className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl border-2 flex items-center justify-center shrink-0 transition-all ${
@@ -322,7 +322,7 @@ function App() {
                           {task.completed && <Check className="h-4 w-4 text-white sm:h-5 sm:w-5" />}
                         </button>
 
-                        <div className="min-w-0 flex-1">
+                        <div className="min-w-0 flex-1 text-center">
                           <p
                             className={`text-base sm:text-lg lg:text-xl transition-all truncate ${
                               task.completed
