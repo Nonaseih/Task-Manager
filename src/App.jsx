@@ -342,7 +342,7 @@ function App() {
                           </p>
                         </div>
 
-                        <div className="flex gap-2 opacity-100 transition-opacity group-hover:opacity-100 sm:gap-3 sm:opacity-0 lg:gap-5">
+                        <div className="flex gap-2 opacity-100 transition-opacity group-hover:opacity-100 sm:gap-3 lg:gap-5">
                           <button
                             onClick={() => startEdit(task)}
                             className="min-w-[44px] rounded-lg bg-white/10 p-2 text-gray-400 transition-all hover:bg-white/20 hover:text-white sm:min-w-[52px] sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
@@ -351,7 +351,7 @@ function App() {
                           </button>
                           <button
                             onClick={() => deleteTask(task.id)}
-                            className="min-w-[44px] rounded-lg bg-red-500/10 p-2 text-red-400 transition-all hover:bg-red-500/20 hover:text-red-300 sm:min-w-[52px] sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
+                            className="min-w-[44px] rounded-lg bg-red-500/20 p-2 text-red-400 transition-all hover:bg-red-500/30 hover:text-red-300 sm:min-w-[52px] sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
                           >
                             <Trash2 className="h-4 w-4 sm:h-5 sm:w-5" />
                           </button>
